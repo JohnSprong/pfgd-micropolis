@@ -167,18 +167,18 @@ public class MonsterSprite extends Sprite
 			this.frame = 0; //kill zilla
 		}
 
-		for (Sprite s : city.allSprites())
-		{
-			if (checkSpriteCollision(s) &&
-				(s.kind == SpriteKind.AIR ||
-				 s.kind == SpriteKind.COP ||
-				 s.kind == SpriteKind.SHI ||
-				 s.kind == SpriteKind.TRA)
-				) {
-				s.explodeSprite();
-			}
-		}
+		// for (Sprite s : city.allSprites())
+		// {
+		// 	// if (checkSpriteCollision(s) &&
+		// 	// 	(s.kind == SpriteKind.AIR ||
+		// 	// 	 s.kind == SpriteKind.COP ||
+		// 	// 	 s.kind == SpriteKind.SHI ||
+		// 	// 	 s.kind == SpriteKind.TRA)
+		// 	// 	) {
+		// 	// 	s.explodeSprite();
+		// 	// }
+		// }
 
-		destroyTile(x / 16, y / 16);
-	}
+		godzillaGarden(x / 16, y / 16);
+
 }
