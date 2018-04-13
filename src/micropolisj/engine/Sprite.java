@@ -225,14 +225,22 @@ public abstract class Sprite
 			if (isZoneCenter(t)) {
 				city.killZone(xpos, ypos, t);
 				if (t > RZB) {
+<<<<<<< HEAD
 					city.setTile(xpos, ypos, WOODS_HIGH);
+=======
+					city.setTile(xpos, ypos, WOODS_HIGH)
+>>>>>>> 826a8dcc2a52f1ca04714b5d2e226845d22d4f62
 				}
 			}
 			if (checkWet(t)) {
 				city.setTile(xpos, ypos, RIVER);
 			}
 			else {
+<<<<<<< HEAD
 				city.setTile(xpos, ypos, WOODS);
+=======
+				city.setTile(xpos, ypos, WOODS5);
+>>>>>>> 826a8dcc2a52f1ca04714b5d2e226845d22d4f62
 			}
 		}
 	}
