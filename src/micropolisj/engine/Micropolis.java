@@ -649,6 +649,7 @@ public class Micropolis
 		case 15:
 			fireAnalysis();
 			doDisasters();
+			//sendMessage(MicropolisMessage.HIGH_CRIME);
 			break;
 
 		default:
@@ -2328,7 +2329,6 @@ public class Micropolis
 			monster.destY = pollutionMaxLocationY;
 			return;
 		}
-
 		// try to find a suitable starting spot for monster
 
 		for (int i = 0; i < 300; i++) {
@@ -2522,6 +2522,7 @@ public class Micropolis
 		int powerCount = nuclearCount + coalCount;
 
 		int z = cityTime % 64;
+		int intMessage;
 		switch (z) {
 		case 1:
 			if (totalZoneCount / 4 >= resZoneCount) {
@@ -2582,6 +2583,21 @@ public class Micropolis
 		case 35:
 			if (pollutionAverage > 60) { // FIXME, consider changing threshold to 80
 				sendMessage(MicropolisMessage.HIGH_POLLUTION);
+				makeMonster();
+				sendMessage(MicropolisMessage.MONSTER_REPORT);
+				intMessage = PRNG.nextInt(5)+45;
+				if (intMessage == 45){
+					sendMessage(MicropolisMessage.GARDEN_ZILLA);
+				} else if (intMessage == 46){
+					sendMessage(MicropolisMessage.GARDEN_ZILLA2);
+				} else if (intMessage == 47){
+					sendMessage(MicropolisMessage.GARDEN_ZILLA3);
+				} else if (intMessage == 48){
+					sendMessage(MicropolisMessage.GARDEN_ZILLA4);
+				} else if (intMessage == 49){
+					sendMessage(MicropolisMessage.GARDEN_ZILLA5);
+				}
+				pollutionAverage = 0;
 			}
 			break;
 		case 42:

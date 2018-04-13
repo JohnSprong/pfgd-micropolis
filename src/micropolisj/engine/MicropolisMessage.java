@@ -58,9 +58,17 @@ public enum MicropolisMessage
 	FLOOD_REPORT,
 	MELTDOWN_REPORT,        // 43            doMeltdown
 	RIOTING_REPORT,
+	GARDEN_ZILLA,			//45
+	GARDEN_ZILLA2,			//46
+	GARDEN_ZILLA3,			//47
+	GARDEN_ZILLA4,			//48
+	GARDEN_ZILLA5,			//49
 
 	// added by Jason
-	NO_NUCLEAR_PLANTS;
+	NO_NUCLEAR_PLANTS,
+
+	//added by John
+	MONSTER_GARDEN1;
 
 	/** Whether the message should be displayed in the notification pane. */
 	public boolean useNotificationPane = false;
@@ -75,6 +83,7 @@ public enum MicropolisMessage
 	POP_500K_REACHED.useNotificationPane = true;
 	HIGH_CRIME.useNotificationPane = true;
 	HIGH_POLLUTION.useNotificationPane = true;
+	//MONSTER_REPORT.useNotificationPane = true;
 
 	// location-specific
 	FLOOD_REPORT.useNotificationPane = true;

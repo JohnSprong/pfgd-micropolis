@@ -204,6 +204,40 @@ public abstract class Sprite
 	}
 
 	/**
+	*Godzilla turns tiles it destroys into woods.
+	*still destroys bridges, because godzilla isn't a perfect monster, he does the best he can.
+	*/
+	final void godzillaGarden(int xpos, int ypos)
+	{
+		if (!city.testBounds(xpos, ypos))
+			return;
+
+		int t = city.getTile(xpos, ypos);
+
+		if (t >= TREEBASE) {
+			if (isBridge(t)) {
+				city.setTile(xpos, ypos, WOODS);
+				return;
+			}
+			if (!isCombustible(t)) {
+				return; //cannot destroy it
+			}
+			if (isZoneCenter(t)) {
+				city.killZone(xpos, ypos, t);
+				if (t > RZB) {
+					city.setTile(xpos, ypos, WOODS_HIGH);
+				}
+			}
+			if (checkWet(t)) {
+				city.setTile(xpos, ypos, RIVER);
+			}
+			else {
+				city.setTile(xpos, ypos, WOODS);
+			}
+		}
+	}
+
+	/**
 	 * Helper function for rotating a sprite.
 	 * @param p the sprite's current attitude (1-8)
 	 * @param d the desired attitude (1-8)
